@@ -1,0 +1,54 @@
+import re
+
+def check(text):
+    texts = text.lower()
+    L = {}
+    count = 0
+    if len(texts) <= 10 ** 5:
+        T = texts
+        for word in T:
+            while re.match(r'[a-z]', word):
+                for x in T:
+                    if x == word:
+                        count = count + 1
+
+                texts = texts.strip(str(word))
+                L[word] = count
+                count = 0
+                break
+    return L
+
+def demo(dict):
+    values = []
+    number = 0
+    new_values = []
+    for value in dict.values():
+        values.append(value)
+    new_values = sorted(values)
+    number = new_values[-1]
+    return number
+
+def search(dict, number):
+    # keys = []
+    # new_keys = []
+    # for value, key in enumerate(dict):
+    #     if value == number:
+    #         keys.append(key)
+    #     new_keys = sorted(keys)
+
+    key = sorted([(v ,k) for k ,v in dict.items() ], reverse=False)
+    key_J = []
+    #print(new_keys[0])
+    # return new_keys[0]
+    for i in range(0,len(key)):
+        if key[i][0] == number:
+            key_J.append(key[i][1])
+            new_key = sorted(key_J)
+    return new_key[0]
+
+def checkio(text):
+    dict = check(text)
+    number = demo(dict)
+    word = search(dict, number)
+    return word
+
