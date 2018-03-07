@@ -1,0 +1,10 @@
+def count_words(text, words):
+    text = text.lower()
+    same_word = []
+    list = text.split()
+    for x in list:
+        for y in words:
+            if x.find(y) >= 0:
+                same_word.append(y)
+    count = len(set(same_word))
+    return count
