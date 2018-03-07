@@ -1,0 +1,18 @@
+def checkio(data):
+    list = []
+    final_data = data[:]
+    data_copy = data[:]
+    new_data = data[:]
+    for x in new_data:
+        if x not in list:
+            list.append(x)
+            data_copy.remove(x)
+            new_data = data_copy
+
+
+    for i in final_data:
+        if i not in new_data:
+            data.remove(i)
+            final_data = data
+
+    return data
