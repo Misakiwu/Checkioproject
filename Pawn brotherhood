@@ -1,0 +1,8 @@
+def safe_pawns(pawns):
+    count = 0
+    for x in pawns:
+        for y in pawns:
+            if (ord(y[0])+1 == ord(x[0]) and int(y[1]) == int(x[1])-1) or (ord(y[0])-1 == ord(x[0]) and int(y[1]) == int(x[1])-1):
+                count += 1
+                break
+    return count
