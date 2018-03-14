@@ -1,0 +1,17 @@
+def long_repeat(line):
+    count = 0
+    times = []
+    if len(line) == 0:
+        return 0
+    else:
+        for c,x in enumerate(line):
+            for y in line[c:]:
+                if x == y:
+                    count += 1
+                else:
+                    break
+            times.append(count)
+            count = 0
+        return sorted(times)[-1]
+
+print(long_repeat(""))
