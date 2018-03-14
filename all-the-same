@@ -1,0 +1,14 @@
+from typing import List, Any
+
+def all_the_same(elements: List[Any]) -> bool:
+    active = True
+    if len(elements) <= 1:
+        return active
+    else:
+        for x in elements:
+            for y in elements:
+                if x != y:
+                    active = False
+        return active
+
+print(all_the_same([1, 2, 1]))
